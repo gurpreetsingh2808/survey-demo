@@ -1,0 +1,73 @@
+/* Customize the label (the option) */
+/* Hide the browser's default checkbox */
+/* Create a custom checkbox */
+.option {
+	display: block;
+	position: relative;
+	padding-left: 35px;
+	margin-bottom: 12px;
+	cursor: pointer;
+	// font-size: 22px;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	input {
+		position: absolute;
+		opacity: 0;
+		cursor: pointer;
+		height: 0;
+		width: 0;
+		&:checked {
+			~ {
+				.checkmark {
+					background-color: #2196f3;
+					&:after {
+						display: block;
+					}
+				}
+			}
+		}
+	}
+	&:hover {
+		input {
+			~ {
+				.checkmark {
+					background-color: #ccc;
+				}
+			}
+		}
+	}
+	&:checked {
+		background-color: #2196f3;
+	}
+	.option-label {
+		margin-left: 32px;
+	}
+	.checkmark {
+		&:after {
+			top: 6px;
+			left: 6px;
+			width: 9px;
+			height: 9px;
+			border-radius: 50%;
+			background: white;
+		}
+	}
+}
+.checkmark {
+	position: absolute;
+	top: 50%;
+	left: 8px;
+	transform: translateY(-50%);
+	height: 22px;
+	width: 22px;
+	background-color: #eee;
+	border-radius: 50%;
+	border: 1px solid #2196f3;
+	&:after {
+		content: "";
+		position: absolute;
+		display: none;
+	}
+}

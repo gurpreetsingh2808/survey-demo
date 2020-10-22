@@ -1,0 +1,25 @@
+<div class="container my-5 flex-column">
+  <ng-container *ngFor="let question of questions; let idx = index">
+    <form class="w-100" [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
+      <p class="question">{{ question.text }}</p>
+
+      <div class="row option-container">
+        <ng-container *ngFor="let item of question.options; let i = index">
+          <div class="m-0 d-flex flex-column h-100">
+            <label class="option">
+              <input
+                type="radio"
+                [value]="item.value"
+                formControlName="answer"
+              />
+              <span class="checkmark"></span>
+              <div class="option-label">{{ item.name }}</div>
+            </label>
+            <input class="other-input" *ngIf="item.type == radioType.OTHER" />
+          </div>
+        </ng-container>
+      </div>
+      <button class="ml-2 mt-4" type="submit">Submit</button>
+    </form>
+  </ng-container>
+</div>
